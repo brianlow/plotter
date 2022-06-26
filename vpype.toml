@@ -1,0 +1,43 @@
+[gwrite.default]
+
+unit = "mm"
+
+document_start = '''
+                                ; -- setup
+M3                              ; start spindle
+G21                             ; units are millimeters
+G90                             ; absolute mode
+G00 Z30 F720                    ; raise pen for travel
+
+'''
+
+layer_start = '''
+                                
+                                ; -- start layer --
+'''
+
+segment_first = '''
+G00 X{x:.4f} Y{y:.4f} F10000   ; move
+G00 Z7 F750                     ; pen down
+'''
+
+segment = '''
+G00 X{x:.4f} Y{y:.4f} F10000   ; draw
+'''
+
+segment_last = '''
+G01 X{x:.4f} Y{y:.4f} F4500     ; draw
+G00 Z10 F750                    ; pen up
+'''
+
+document_end = '''
+
+                                ; -- shutdown
+G00 Z30 F720                    ; raise pen for travel
+G00 X85 Y175 F10000             ; move head out of the way
+M5                              ; stop spindle
+M84                             ; disable motors
+M2                              ; program end
+'''
+
+invert_y = true
