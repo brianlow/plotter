@@ -7,6 +7,7 @@ document_start = '''
 M3                              ; start spindle
 G21                             ; units are millimeters
 G90                             ; absolute mode
+G28 W                           ; home all without mesh bed level
 G00 Z30 F720                    ; raise pen for travel
 
 '''
