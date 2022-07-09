@@ -2,6 +2,11 @@
 
 unit = "mm"
 
+# https://github.com/plottertools/vpype-gcode/issues/25
+invert_y = false
+
+invert_x = false
+
 document_start = '''
                                 ; -- setup
 M3                              ; start spindle
@@ -13,7 +18,7 @@ G00 Z30 F720                    ; raise pen for travel
 '''
 
 layer_start = '''
-                                
+
                                 ; -- start layer --
 '''
 
@@ -40,5 +45,3 @@ M5                              ; stop spindle
 M84                             ; disable motors
 M2                              ; program end
 '''
-
-invert_y = true

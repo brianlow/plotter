@@ -20,14 +20,22 @@ Printing [Cubic Cityscape #1](https://plotterfiles.com/@reinder/files/6007e7e9-a
 
 ### Workflow
 1. Layout the SVG
-	1. Open the SVG in Affinity Designeer -> select all -> copy
-	1. Affinity Designer -> New -> Print -> use width and height of your plottable area (e.g. 207 x 172 mm), units: millimeters
-	2. Paste the SVG
+	1. Open the SVG in Affinity Designer -> select all -> copy
+	2. Affinity Designer -> New -> Print
+	  * width/height: yuor plottable area (e.g. 207 x 172 mm)
+		* units: millimeters
+		* dpi: 96 (vpype assumes 96 dpi)
+	3. Paste the SVG
 	3. If modifying the SVG or have multiple object, group the vector layers together (Layer toolbox -> select all -> right-click Group). vpype will optimize paths within a layer.
 	4. Export -> SVG
+	  * Use DPI: 96 (under More)
+		* Flatten Transforms checked (under More)
+		* Export Text as Curves checked (under More)
+		* Set Viewbox (under More)
 2. `./plot.sh myfile.svg`
 3. Print
 	1. Place paper on smooth sheet
 	2. Secure with magnets, tape or binder clips
-	3. Place these on the front, right edge (on the Prusa logo) and on the back left edge (still experimenting, not sure if print head may still hit this spot)
+		* Place these on the front, right edge (on the Prusa logo) and on the back left edge
+		* If you are using something short to secure, you can get away with anywhere along top & bottom edges
 	4. Print `myfile.gcode`
